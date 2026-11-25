@@ -28,10 +28,10 @@ def arguments():
     p.add_argument('--seed', type=int, default=27)
     p.add_argument('--site', choices=('soil', 'rock'), default='soil',
                    help='Condición de sitio Youngs et al. (1997): soil (por defecto) o rock')
-    p.add_argument('--median-pga', type=float, default=0.30,
-                   help='PGA mediana A_m (g) de curva lognormal HAZUS-MH (por defecto 0.30 g, Distribution Circuits)')
-    p.add_argument('--beta', type=float, default=0.50,
-                   help='Dispersión logarítmica beta de curva HAZUS-MH (por defecto 0.50)')
+    p.add_argument('--median-pga', type=float, default=0.33,
+                   help='PGA mediana A_m (g) de curva lognormal HAZUS-MH (por defecto 0.33 g: Hazus 5.1, Tabla 8-30, circuitos estándar, daño moderado)')
+    p.add_argument('--beta', type=float, default=0.20,
+                   help='Dispersión logarítmica beta de curva HAZUS-MH (por defecto 0.20)')
     p.add_argument('--tolerance-m', type=float, default=10.0)
     p.add_argument('--snap-limit-m', type=float, default=250.0)
     p.add_argument('--sensitivity', action='store_true',
@@ -68,7 +68,7 @@ def pipeline(args):
     from src.reliability import HAZUS_PRESETS, attr, failure_probability
     from src.sources import (
         ATTR_BOETTCHER_URL,
-        ATTR_MANZANO_URL,
+        ATTR_RUEDA_URL,
         GMPE_PAPER_URL,
         HAZUS_URL,
         STUDY_URL,
@@ -195,11 +195,11 @@ def pipeline(args):
         synth_edges = [e for e in edge_rows if e['synthetic']]
 
         warnings = [
-            'La capa SAIP original (~10.312,8 km de fibra observada en 2018) representa una fracción de los ~26.534 km (~28.000 km solicitados) del Estudio SUBTEL 2018 y presenta 168 componentes aisladas por omisión de fibra soterrada urbana (p. ej. Gran Santiago, Supuesto S2).',
+            'La capa SAIP original (~10.312,8 km de fibra observada en 2018) presenta 168 componentes desconectadas. El Estudio SUBTEL 2018 distingue fibra observada y recorridos de inspección; su Supuesto S2 asume conexiones entre comunas del Gran Santiago sin validación en terreno.',
             f'Se incorporan {len(synth_edges)} enlaces sintéticos explícitamente marcados (synthetic=true) y justificados (acometidas urbanas, anillo metropolitano de Santiago, continuidad troncal y cable submarino SAm-1) para conectar los nodos clave; pueden distinguirse visualmente en Leaflet.',
             'Anacronismo temporal: se evalúa el sismo histórico del 27-02-2010 sobre infraestructura levantada en 2018 y nodos clave documentados en PeeringDB/TeleGeography.',
             'El modelo Youngs et al. (1997) usa la distancia 3D más cercana (R_rup) al plano de ruptura oficial USGS ShakeMap (Hayes 2011b, ~500 km de extensión) y asume condición homogénea de sitio.',
-            'Las fallas de enlaces se suponen independientes condicionadas al sismo; no se modelan fallas de nodos/data centers, cortes eléctricos, tsunami, licuefacción ni tiempos de reparación.',
+            'La excedencia del daño moderado en circuitos eléctricos estándar se interpreta como interrupción del enlace de fibra: es una adaptación del estudio sin calibración específica para fibra. Las fallas de enlaces se suponen independientes condicionadas al sismo; no se modelan fallas de nodos/data centers, cortes eléctricos, tsunami, licuefacción ni tiempos de reparación.',
         ]
         if baseline['value'] == 0:
             warnings.insert(0, 'ATTR inicial=0: ningún par de nodos clave está conectado en los datos.')
@@ -229,7 +229,7 @@ def pipeline(args):
                 name='Youngs et al. (1997) GMPE + FEMA HAZUS-MH (Ch. 8) Fragilidad Lognormal',
                 gmpe_reference='Youngs, Chiou, Silva & Humphrey (1997), Seismological Research Letters, 68(1), 58-73',
                 gmpe_url=GMPE_PAPER_URL,
-                fragility_reference='FEMA HAZUS-MH Earthquake Model Technical Manual, Ch. 8 (Distribution Circuits, Standard Components)',
+                fragility_reference='FEMA Hazus 5.1 (2022), Table 8-30: Distribution Circuits, Standard Components, Moderate damage',
                 fragility_url=HAZUS_URL,
                 function='PGA(g) = exp(c1 + c2*M + c3*ln(R_rup + c4*exp(c5*M)) + c6*H + c7*Z_T); p(e) = Phi(ln(PGA/A_m)/beta)',
                 distance_metric='R_rup' if has_rupture else 'R_hyp',
@@ -239,7 +239,7 @@ def pipeline(args):
                 z_t=0,
                 median_pga_g=args.median_pga,
                 beta=args.beta,
-                parameters_status='coeficientes publicados en literatura (Youngs et al. 1997; FEMA HAZUS-MH) y ruptura finita USGS (Hayes 2011b)',
+                parameters_status='Youngs et al. (1997); fragilidad seleccionada de Hazus 5.1, con adaptación a interrupción de enlaces; ruptura USGS (Hayes 2011b)',
             ),
             settings=settings,
             sources=dict(
@@ -249,7 +249,7 @@ def pipeline(args):
                 gmpe=GMPE_PAPER_URL,
                 fragility=HAZUS_URL,
                 attr_boettcher=ATTR_BOETTCHER_URL,
-                attr_manzano=ATTR_MANZANO_URL,
+                attr_rueda=ATTR_RUEDA_URL,
             ),
             warnings=warnings,
             most_affected=sorted(edge_rows, key=lambda e: e['p_failure'], reverse=True)[:10],
@@ -289,6 +289,18 @@ def pipeline(args):
                         ci95=res_s['ci95'],
                         drop_percent=100.0 * (res_s['value'] - baseline['value']) / baseline['value'] if baseline['value'] else None,
                     ))
+
+        if args.sensitivity:
+            point_distances = rows(conn, """SELECT e.source, e.target,
+                ST_Distance(e.geom, ST_Transform(q.geom, 32719))/1000.0 AS distance_km
+                FROM resiliencia.edges e CROSS JOIN resiliencia.earthquake q
+                ORDER BY e.id""")
+            point_edges = [(e['source'], e['target'], failure_probability(
+                e['distance_km'], magnitude=eq['magnitude'], depth_km=eq['depth_km'],
+                site=args.site, median_pga=args.median_pga, beta=args.beta,
+                is_rupture_distance=False)) for e in point_distances]
+            summary['epicentral_comparison'] = attr(
+                vertices, point_edges, terminals, args.iterations, args.seed)
 
         conn.execute("INSERT INTO resiliencia.metadata VALUES ('settings',%s) ON CONFLICT(key) DO UPDATE SET value=excluded.value", (Jsonb(settings),))
         conn.execute("INSERT INTO resiliencia.metadata VALUES ('results',%s) ON CONFLICT(key) DO UPDATE SET value=excluded.value", (Jsonb(summary),))

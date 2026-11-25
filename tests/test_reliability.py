@@ -1,6 +1,6 @@
 import math
 import pytest
-from src.reliability import attr, failure_probability, fragility_hazus, pga_youngs1997
+from src.reliability import HAZUS_PRESETS, attr, failure_probability, fragility_hazus, pga_youngs1997
 
 
 def test_series_path():
@@ -55,9 +55,11 @@ def test_youngs1997_attenuation_and_site_amplification():
 
 
 def test_hazus_fragility_median_is_half():
-    assert fragility_hazus(0.30, median_pga=0.30, beta=0.50) == pytest.approx(0.5)
-    assert fragility_hazus(0.0, median_pga=0.30, beta=0.50) == 0.0
-    assert 0.0 < fragility_hazus(0.60, median_pga=0.30, beta=0.50) < 1.0
+    assert fragility_hazus(0.33) == pytest.approx(0.5)
+    assert HAZUS_PRESETS['distribution_moderate']['median_pga'] == 0.33
+    assert HAZUS_PRESETS['distribution_moderate']['beta'] == 0.20
+    assert fragility_hazus(0.0) == 0.0
+    assert 0.0 < fragility_hazus(0.60) < 1.0
 
 
 def test_failure_probability_decreases_with_distance_and_stays_in_unit_interval():

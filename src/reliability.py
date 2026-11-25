@@ -6,10 +6,10 @@ Seismic model (two-stage, literature-backed):
    Seismological Research Letters, 68(1), 58-73 (DOI: 10.1785/gssrl.68.1.58).
 2. Lognormal Fragility Curve: FEMA Hazus Earthquake Model Technical Manual, Ch. 8
    (Direct Damage to Lifeline Utility Systems — Distribution Circuits, Standard
-   Components: A_m = 0.30 g, beta = 0.50), justified because 98.3 % of Chilean SAIP
+   Components, Moderate damage, Table 8-30: A_m = 0.33 g, beta = 0.20), justified because 98.3 % of Chilean SAIP
    fiber (10,164 / 10,342 km, Estudio SUBTEL 2018 Table 4.1) is aerial on poles.
 
-ATTR definition (Boettcher et al., 2018, Eq. 8; Manzano et al., 2016):
+ATTR definition adapted from Boettcher et al. (2018), Eqs. 8-9:
 Average over distinct pairs of key terminal nodes of the probability that they
 remain connected. Edges fail independently conditional on the hazard scenario.
 Parallel edges are kept; isolated terminals remain in the denominator.
@@ -27,9 +27,9 @@ YOUNGS97_PARAMS = {
 
 # FEMA Hazus-MH (Ch. 8) lognormal fragility presets for sensitivity analysis
 HAZUS_PRESETS = {
-    'distribution_standard': dict(label='HAZUS Distribution Circuits (estándar)', median_pga=0.30, beta=0.50),
-    'comm_moderate': dict(label='HAZUS Communication Facilities (daño moderado)', median_pga=0.32, beta=0.60),
-    'comm_extensive': dict(label='HAZUS Communication Facilities (daño extensivo)', median_pga=0.60, beta=0.62),
+    'distribution_moderate': dict(label='HAZUS 5.1, Tabla 8-30: circuitos estándar, daño moderado', median_pga=0.33, beta=0.20),
+    'comm_moderate': dict(label='HAZUS 5.1, Tabla 8-38: instalaciones ancladas, daño moderado', median_pga=0.32, beta=0.60),
+    'comm_extensive': dict(label='HAZUS 5.1, Tabla 8-38: instalaciones ancladas, daño extensivo', median_pga=0.60, beta=0.62),
 }
 
 
@@ -202,8 +202,11 @@ def pga_youngs1997(distance_km, magnitude=8.8, depth_km=22.9, site='soil', z_t=0
     return math.exp(ln_pga)
 
 
-def fragility_hazus(pga_g, median_pga=0.30, beta=0.50):
-    """Lognormal seismic fragility probability Phi(ln(PGA / A_m) / beta) from FEMA HAZUS-MH."""
+def fragility_hazus(pga_g, median_pga=0.33, beta=0.20):
+    """Damage-state exceedance probability; defaults: Hazus 5.1, Table 8-30,
+    standard distribution circuits, Moderate damage. Its use as link outage
+    probability is a modeling assumption, not a fiber-specific calibration.
+    """
     if not all(math.isfinite(x) for x in (pga_g, median_pga, beta)):
         raise ValueError('Parámetros de fragilidad no finitos.')
     if pga_g < 0 or median_pga <= 0 or beta <= 0:
@@ -215,7 +218,7 @@ def fragility_hazus(pga_g, median_pga=0.30, beta=0.50):
 
 
 def failure_probability(distance_km, magnitude=8.8, depth_km=22.9, site='soil',
-                        median_pga=0.30, beta=0.50, z_t=0, is_rupture_distance=False):
+                        median_pga=0.33, beta=0.20, z_t=0, is_rupture_distance=False):
     """Combined Youngs et al. (1997) PGA + FEMA HAZUS-MH fragility failure probability."""
     pga = pga_youngs1997(
         distance_km,

@@ -12,9 +12,9 @@ USGS_URL = ('https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson'
 USGS_DETAIL_URL = 'https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=official20100227063411530_30&format=geojson'
 STUDY_URL = 'https://www.subtel.gob.cl/wp-content/uploads/2018/12/resiliencia_uchile_corfo_subtel.pdf'
 GMPE_PAPER_URL = 'https://doi.org/10.1785/gssrl.68.1.58'
-HAZUS_URL = 'https://www.fema.gov/flood-maps/products-tools/hazus'
+HAZUS_URL = 'https://www.fema.gov/sites/default/files/documents/fema_hazus-earthquake-model-technical-manual-5-1.pdf'
 ATTR_BOETTCHER_URL = 'https://doi.org/10.1109/TLA.2018.8789553'
-ATTR_MANZANO_URL = 'https://doi.org/10.1007/s10922-016-9391-y'
+ATTR_RUEDA_URL = 'https://doi.org/10.1007/s10922-016-9391-y'
 
 
 def ensure_usgs_shakemap(rupture_path, contours_path):

@@ -243,7 +243,7 @@ def build(conn, infrastructure, nodes, earthquake, demo, tolerance, snap_limit, 
     conn.commit()
 
 
-def update_probabilities(conn, site='soil', median_pga=0.30, beta=0.50, z_t=0):
+def update_probabilities(conn, site='soil', median_pga=0.33, beta=0.20, z_t=0):
     """Apply Youngs et al. (1997) PGA + FEMA HAZUS-MH fragility to every edge in PostGIS."""
     with conn.cursor() as cur:
         cur.execute('SELECT magnitude, depth_km, rupture_geom IS NOT NULL FROM resiliencia.earthquake LIMIT 1')
