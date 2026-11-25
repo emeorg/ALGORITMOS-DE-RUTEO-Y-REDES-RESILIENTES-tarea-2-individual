@@ -1,0 +1,37 @@
+name: resiliencia-internet-cl
+services:
+  db:
+    image: pgrouting/pgrouting:16-3.5-3.8
+    environment:
+      POSTGRES_DB: resiliencia
+      POSTGRES_USER: resiliencia
+      POSTGRES_PASSWORD: resiliencia_local
+    volumes:
+      - resiliencia-db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U resiliencia -d resiliencia"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+  app:
+    build: .
+    user: "${APP_UID:-1000}:${APP_GID:-1000}"
+    environment:
+      DATABASE_URL: postgresql://resiliencia:resiliencia_local@db:5432/resiliencia
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - .:/app
+  web:
+    build: ./web
+    environment:
+      OUTPUT_DIR: /data/output
+      PORT: "3000"
+      HOSTNAME: 0.0.0.0
+    volumes:
+      - ./output:/data/output:ro
+    ports:
+      - "127.0.0.1:${APP_PORT:-8082}:3000"
+volumes:
+  resiliencia-db:

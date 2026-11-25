@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+.env
+output/
+data/raw/estudio_subtel_2018.pdf
+web/node_modules/
+web/.next/

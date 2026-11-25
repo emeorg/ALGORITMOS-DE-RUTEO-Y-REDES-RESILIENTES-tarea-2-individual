@@ -1,0 +1,445 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [[-70.30674851728985, -18.47337014462133], [-70.321906795, -18.478168904]]
+      },
+      "properties": {
+        "name": "Acometida urbana: Arica (CLS SAm-1) → SAIP",
+        "category": "acometida_urbana",
+        "source": "TeleGeography Submarine Cable Map & Estudio SUBTEL (2018)",
+        "synthetic": true,
+        "justification": "Conecta el punto de aterrizaje de Arica con el extremo de fibra SAIP más cercano (1,69 km), compensando el carácter aproximado de la coordenada de localidad y el trazado urbano no relevado."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [[-70.3975, -23.6509], [-70.398, -23.6464]]
+      },
+      "properties": {
+        "name": "Acometida urbana: Antofagasta → SAIP",
+        "category": "acometida_urbana",
+        "source": "Estudio SUBTEL / NIC Labs (2018)",
+        "synthetic": true,
+        "justification": "Enlace urbano de acceso (0,50 km) entre el nodo troncal de Antofagasta y el vértice SAIP más próximo."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [[-71.62048049678572, -33.045765558769304], [-71.628350561, -33.038315726]]
+      },
+      "properties": {
+        "name": "Acometida urbana: Valparaíso (CLS SAm-1/SAC) → SAIP Ruta 68",
+        "category": "acometida_urbana",
+        "source": "TeleGeography & Estudio SUBTEL (2018, p. 22)",
+        "synthetic": true,
+        "justification": "Conecta la estación de aterrizaje de Valparaíso con el extremo de fibra SAIP del corredor Ruta 68 (1,11 km); el Estudio SUBTEL (p. 22) documenta anillo urbano soterrado en Valparaíso."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [[-70.67626, -33.357991], [-70.700582244, -33.366188614]]
+      },
+      "properties": {
+        "name": "Acometida urbana: Cirion SAN1 → SAIP Ruta 5 Norte (Quilicura)",
+        "category": "acometida_urbana",
+        "source": "Estudio SUBTEL (2018, sec. 6.2 Supuesto S2) & PeeringDB fac/2093",
+        "synthetic": true,
+        "justification": "Conecta el data center/PIT Cirion SAN1 con el extremo sur del tronco SAIP Ruta 5 Norte (2,44 km). El Estudio SUBTEL (Supuesto S2) declara que el Gran Santiago no fue validado en terreno."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [[-70.848318, -33.448022], [-71.155095446, -33.412922237]]
+      },
+      "properties": {
+        "name": "Acometida troncal poniente: Equinix ST1/ST2 → SAIP Ruta 68 (Curacaví)",
+        "category": "acometida_urbana",
+        "source": "Estudio SUBTEL (2018, sec. 6.2 Supuesto S2) & PeeringDB fac/5295",
+        "synthetic": true,
+        "justification": "Une Equinix ST1/ST2 (sector poniente de Santiago) con el trazado SAIP proveniente de Valparaíso por Ruta 68, cubriendo el tramo urbano/periurbano soterrado del Gran Santiago no relevado en el ZIP SAIP."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [[-70.655821, -33.444436], [-70.714401296, -33.587849323]]
+      },
+      "properties": {
+        "name": "Acometida troncal sur: Torre Entel → SAIP Ruta 5 Sur (San Bernardo)",
+        "category": "acometida_urbana",
+        "source": "Estudio SUBTEL (2018, sec. 6.2 Supuesto S2) & PeeringDB fac/5301",
+        "synthetic": true,
+        "justification": "Conecta el nodo central Torre Entel con el inicio del corredor SAIP Ruta 5 Sur hacia Rancagua, cubriendo la malla urbana soterrada del Gran Santiago omitida en el levantamiento visual."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [[-70.67626, -33.357991], [-70.655821, -33.444436]]
+      },
+      "properties": {
+        "name": "Anillo Metropolitano Santiago: Cirion SAN1 ↔ Torre Entel",
+        "category": "anillo_metropolitano",
+        "source": "Estudio SUBTEL (2018, p. 22 y sec. 6.2 Supuesto S2)",
+        "synthetic": true,
+        "justification": "Interconexión metropolitana soterrada en Santiago entre los principales PIT/data centers, respaldada por el Estudio SUBTEL (p. 22 y Supuesto S2)."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [[-70.655821, -33.444436], [-70.848318, -33.448022]]
+      },
+      "properties": {
+        "name": "Anillo Metropolitano Santiago: Torre Entel ↔ Equinix ST1/ST2",
+        "category": "anillo_metropolitano",
+        "source": "Estudio SUBTEL (2018, p. 22 y sec. 6.2 Supuesto S2)",
+        "synthetic": true,
+        "justification": "Interconexión metropolitana soterrada en Santiago entre Torre Entel y Equinix ST1/ST2, respaldada por el Estudio SUBTEL (p. 22 y Supuesto S2)."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [[-70.848318, -33.448022], [-70.67626, -33.357991]]
+      },
+      "properties": {
+        "name": "Anillo Metropolitano Santiago: Equinix ST1/ST2 ↔ Cirion SAN1",
+        "category": "anillo_metropolitano",
+        "source": "Estudio SUBTEL (2018, p. 22 y sec. 6.2 Supuesto S2)",
+        "synthetic": true,
+        "justification": "Cierre del anillo metropolitano soterrado de Santiago entre Equinix ST1/ST2 y Cirion SAN1 (Estudio SUBTEL, p. 22 y Supuesto S2)."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [[-70.7399, -34.1708], [-70.7406283, -34.17038961]]
+      },
+      "properties": {
+        "name": "Acometida urbana: Rancagua → SAIP acceso norte",
+        "category": "acometida_urbana",
+        "source": "Estudio SUBTEL / NIC Labs (2018)",
+        "synthetic": true,
+        "justification": "Acceso urbano de 0,08 km entre el nodo troncal de Rancagua y el trazado SAIP norte."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [[-70.7399, -34.1708], [-70.789313787, -34.182827315]]
+      },
+      "properties": {
+        "name": "Continuidad urbana Rancagua: Rancagua → SAIP salida sur",
+        "category": "acometida_urbana",
+        "source": "Estudio SUBTEL / NIC Labs (2018)",
+        "synthetic": true,
+        "justification": "Puente urbano de 4,7 km que da continuidad al corredor Ruta 5 Sur a través de la ciudad de Rancagua entre dos componentes SAIP."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [[-71.6554, -35.4264], [-71.666053817, -35.426487729]]
+      },
+      "properties": {
+        "name": "Acometida urbana: Talca → SAIP Maule",
+        "category": "acometida_urbana",
+        "source": "Estudio SUBTEL / NIC Labs (2018)",
+        "synthetic": true,
+        "justification": "Acceso urbano de 0,97 km entre el nodo troncal de Talca y la fibra SAIP del valle del Maule."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [[-73.0444, -36.8201], [-73.050316694, -36.827014085]]
+      },
+      "properties": {
+        "name": "Acometida urbana: Concepción → SAIP acceso sur (Biobío)",
+        "category": "acometida_urbana",
+        "source": "Estudio SUBTEL (2018, p. 22)",
+        "synthetic": true,
+        "justification": "Acceso urbano de 0,93 km que vincula el nodo troncal de Concepción con la componente SAIP principal Biobío–Araucanía (anillo urbano soterrado citado en p. 22)."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [[-73.0444, -36.8201], [-72.993358949, -36.75426976]]
+      },
+      "properties": {
+        "name": "Continuidad urbana Concepción: Concepción → SAIP acceso norte",
+        "category": "acometida_urbana",
+        "source": "Estudio SUBTEL (2018, p. 22)",
+        "synthetic": true,
+        "justification": "Conecta el anillo urbano soterrado de Concepción (Estudio SUBTEL p. 22) con la llegada norte de la fibra SAIP proveniente de San Fernando y el Maule."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [[-72.5904, -38.7359], [-72.59013396, -38.740013425]]
+      },
+      "properties": {
+        "name": "Acometida urbana: Temuco → SAIP Araucanía",
+        "category": "acometida_urbana",
+        "source": "Estudio SUBTEL (2018, p. 22)",
+        "synthetic": true,
+        "justification": "Acceso urbano de 0,46 km al anillo de fibra de Temuco (Estudio SUBTEL, p. 22)."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [[-72.9424, -41.4693], [-72.939613313, -41.471818207]]
+      },
+      "properties": {
+        "name": "Acometida urbana: Puerto Montt → SAIP Los Lagos",
+        "category": "acometida_urbana",
+        "source": "Estudio SUBTEL / NIC Labs (2018)",
+        "synthetic": true,
+        "justification": "Acceso urbano de 0,36 km entre el nodo troncal de Puerto Montt y la componente SAIP Osorno–Puerto Montt."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-70.30674851728985, -18.47337014462133],
+          [-71.2, -20.5],
+          [-71.5, -24.0],
+          [-72.2, -29.5],
+          [-71.62048049678572, -33.045765558769304]
+        ]
+      },
+      "properties": {
+        "name": "Cable submarino SAm-1: Arica ↔ Valparaíso (TeleGeography, RFS 2001)",
+        "category": "cable_submarino",
+        "source": "TeleGeography Submarine Cable Map (arica-chile.json, valparaso-chile.json)",
+        "synthetic": true,
+        "justification": "Segmento chileno del cable submarino South America-1 (SAm-1), operativo desde 2001 entre Arica y Valparaíso. No figura en el levantamiento terrestre SAIP, pero provee redundancia real norte-centro."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [[-70.24994917, -18.549042463], [-69.940037046, -19.614564872]]
+      },
+      "properties": {
+        "name": "Continuidad troncal Ruta 5 Norte: Arica – Huara (tramo soterrado/desértico)",
+        "category": "continuidad_troncal",
+        "source": "Estudio SUBTEL (2018, p. 22)",
+        "synthetic": true,
+        "justification": "Cierra brecha en Ruta 5 Norte donde el levantamiento visual SAIP no detectó fibra aérea sobre postación (tramo soterrado en pampa desértica)."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [[-69.765198147, -20.156418949], [-69.656465294, -20.737830913]]
+      },
+      "properties": {
+        "name": "Continuidad troncal Ruta 5 Norte: Pozo Almonte – Quillagua",
+        "category": "continuidad_troncal",
+        "source": "Estudio SUBTEL (2018, p. 22)",
+        "synthetic": true,
+        "justification": "Cierra brecha de fibra soterrada/no visible en el levantamiento SAIP entre Pozo Almonte y el ingreso a la Región de Antofagasta."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [[-70.319635648, -23.774386404], [-70.316473364, -23.775543972]]
+      },
+      "properties": {
+        "name": "Continuidad urbana Antofagasta Sur (0,35 km)",
+        "category": "continuidad_troncal",
+        "source": "Estudio SUBTEL / NIC Labs (2018)",
+        "synthetic": true,
+        "justification": "Empalme corto (350 m) entre dos componentes SAIP adyacentes al sur de Antofagasta."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [[-70.122309165, -25.562542817], [-69.856209902, -25.836766171]]
+      },
+      "properties": {
+        "name": "Continuidad troncal Ruta 5 Norte: Taltal – Chañaral",
+        "category": "continuidad_troncal",
+        "source": "Estudio SUBTEL (2018, p. 22)",
+        "synthetic": true,
+        "justification": "Cierra discontinuidad en zona desértica de Ruta 5 Norte entre componentes SAIP de Antofagasta y Atacama."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [[-70.024174606, -26.3776653], [-70.037912312, -26.390379372]]
+      },
+      "properties": {
+        "name": "Continuidad troncal Atacama: Chañaral – Copiapó norte (1,97 km)",
+        "category": "continuidad_troncal",
+        "source": "Estudio SUBTEL / NIC Labs (2018)",
+        "synthetic": true,
+        "justification": "Une dos segmentos adyacentes del levantamiento SAIP separados por 1,97 km en la Región de Atacama."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [[-70.3322, -27.3665], [-70.447073868, -27.463469639]]
+      },
+      "properties": {
+        "name": "Continuidad urbana Copiapó (enlace a tronco Ruta 5 Norte)",
+        "category": "continuidad_troncal",
+        "source": "Estudio SUBTEL / NIC Labs (2018)",
+        "synthetic": true,
+        "justification": "Cierra la discontinuidad urbana de Copiapó conectando con la componente SAIP continua Copiapó–La Serena–Santiago Norte."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [[-70.963443917, -34.553905495], [-70.989881611, -34.583392693]]
+      },
+      "properties": {
+        "name": "Continuidad urbana San Fernando (Ruta 5 Sur, 4,08 km)",
+        "category": "continuidad_troncal",
+        "source": "Estudio SUBTEL / NIC Labs (2018)",
+        "synthetic": true,
+        "justification": "Puente urbano de 4,08 km en San Fernando entre las componentes SAIP de O'Higgins y Maule–Biobío."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [[-71.515919242, -35.305115812], [-71.7136543, -35.042705019]]
+      },
+      "properties": {
+        "name": "Continuidad troncal Maule Norte: Curicó – Talca",
+        "category": "continuidad_troncal",
+        "source": "Estudio SUBTEL / NIC Labs (2018)",
+        "synthetic": true,
+        "justification": "Conecta la entrada norte de la componente SAIP de Talca con el corredor SAIP de Ruta 5 Sur al sur de Curicó."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [[-72.222916902, -35.964473076], [-72.224763226, -35.965967442]]
+      },
+      "properties": {
+        "name": "Continuidad local Maule: Cauquenes (0,23 km)",
+        "category": "continuidad_troncal",
+        "source": "Estudio SUBTEL / NIC Labs (2018)",
+        "synthetic": true,
+        "justification": "Empalme urbano corto (230 m) entre las dos componentes SAIP paralelas del Maule en Cauquenes."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [[-71.962333137, -36.439706575], [-72.069190321, -36.527195181]]
+      },
+      "properties": {
+        "name": "Continuidad troncal Ñuble: Parral – San Carlos",
+        "category": "continuidad_troncal",
+        "source": "Estudio SUBTEL / NIC Labs (2018)",
+        "synthetic": true,
+        "justification": "Une la componente SAIP del Maule con la componente SAIP principal Biobío–Araucanía en el corredor Ruta 5 Sur."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [[-72.458422414, -38.545860499], [-72.48454142, -38.662806824]]
+      },
+      "properties": {
+        "name": "Continuidad troncal Araucanía: Lautaro – Temuco norte",
+        "category": "continuidad_troncal",
+        "source": "Estudio SUBTEL (2018, p. 22)",
+        "synthetic": true,
+        "justification": "Conecta el extremo sur de la componente SAIP Biobío–Araucanía con el acceso urbano a Temuco."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [[-72.597627532, -38.773687512], [-72.445206901, -39.279593533]]
+      },
+      "properties": {
+        "name": "Continuidad troncal Ruta 5 Sur: Temuco – Loncoche",
+        "category": "continuidad_troncal",
+        "source": "Estudio SUBTEL / NIC Labs (2018)",
+        "synthetic": true,
+        "justification": "Cierra discontinuidad en Ruta 5 Sur entre Temuco y la componente SAIP de la Región de Los Ríos."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [[-72.877806077, -40.075206192], [-72.880566236, -40.073274868]]
+      },
+      "properties": {
+        "name": "Continuidad local Los Ríos: La Unión (0,32 km)",
+        "category": "continuidad_troncal",
+        "source": "Estudio SUBTEL / NIC Labs (2018)",
+        "synthetic": true,
+        "justification": "Empalme urbano corto (320 m) entre componentes SAIP adyacentes en La Unión."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [[-73.010976347, -40.414524554], [-73.00340112, -40.422969188]]
+      },
+      "properties": {
+        "name": "Continuidad urbana Osorno (1,14 km)",
+        "category": "continuidad_troncal",
+        "source": "Estudio SUBTEL / NIC Labs (2018)",
+        "synthetic": true,
+        "justification": "Empalme urbano de 1,14 km en Osorno entre las componentes SAIP de Los Ríos y Los Lagos hacia Puerto Montt."
+      }
+    }
+  ]
+}

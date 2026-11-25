@@ -1,0 +1,79 @@
+[
+  {
+    "id": 2093,
+    "name": "Cirion Santiago de Chile - SAN1",
+    "city": "Santiago",
+    "latitude": -33.357991,
+    "longitude": -70.67626,
+    "created": "2015-01-30T00:00:00Z",
+    "updated": "2025-09-26T22:45:42Z",
+    "net_count": 70,
+    "ix_count": 4
+  },
+  {
+    "id": 2129,
+    "name": "Internexa Santiago de Chile",
+    "city": "Santiago de Chile",
+    "latitude": -33.431998,
+    "longitude": -70.602003,
+    "created": "2015-02-22T00:00:00Z",
+    "updated": "2025-09-26T22:45:47Z",
+    "net_count": 3,
+    "ix_count": 0
+  },
+  {
+    "id": 4154,
+    "name": "Netglobalis",
+    "city": "Santiago",
+    "latitude": -33.387253,
+    "longitude": -70.616493,
+    "created": "2017-06-20T20:28:17Z",
+    "updated": "2025-09-26T22:49:21Z",
+    "net_count": 3,
+    "ix_count": 0
+  },
+  {
+    "id": 5274,
+    "name": "Grupo ZGH - La Florida",
+    "city": "La Florida",
+    "latitude": -33.559008,
+    "longitude": -70.57492,
+    "created": "2018-04-24T17:46:12Z",
+    "updated": "2025-09-26T22:50:49Z",
+    "net_count": 14,
+    "ix_count": 1
+  },
+  {
+    "id": 5295,
+    "name": "Equinix ST1/ST2 - Santiago",
+    "city": "Santiago",
+    "latitude": -33.448022,
+    "longitude": -70.848318,
+    "created": "2018-04-30T18:07:26Z",
+    "updated": "2025-09-26T22:50:51Z",
+    "net_count": 11,
+    "ix_count": 2
+  },
+  {
+    "id": 5301,
+    "name": "entel - CNT (torre entel)",
+    "city": "Santiago",
+    "latitude": -33.444436,
+    "longitude": -70.655821,
+    "created": "2018-04-30T20:49:14Z",
+    "updated": "2025-09-26T22:50:51Z",
+    "net_count": 10,
+    "ix_count": 2
+  },
+  {
+    "id": 5360,
+    "name": "IFX Santiago",
+    "city": "Santiago",
+    "latitude": -33.418421,
+    "longitude": -70.599568,
+    "created": "2018-05-17T18:29:28Z",
+    "updated": "2025-09-26T22:50:56Z",
+    "net_count": 22,
+    "ix_count": 1
+  }
+]

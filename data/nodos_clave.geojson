@@ -1,0 +1,197 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-70.30674851728985, -18.47337014462133]
+      },
+      "properties": {
+        "name": "Arica — Aterrizaje Cable Submarino SAm-1",
+        "category": "Aterrizaje de cable submarino",
+        "city": "Arica",
+        "role": "intercambia / recibe",
+        "reference": "https://www.submarinecablemap.com/api/v3/landing-point/arica-chile.json",
+        "justification": "Estación de aterrizaje internacional en el extremo norte de Chile. Cable en servicio desde 2001: South America-1 (SAm-1), conectando Chile con Perú, Ecuador, Colombia y EE. UU.",
+        "coordinate_quality": "Coordenada de localidad TeleGeography; conectada al trazado SAIP mediante acometida sintética declarada."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-70.3975, -23.6509]
+      },
+      "properties": {
+        "name": "Antofagasta — Nodo Troncal Norte Grande",
+        "category": "Nodo troncal regional",
+        "city": "Antofagasta",
+        "role": "genera / recibe",
+        "reference": "https://www.subtel.gob.cl/wp-content/uploads/2018/12/resiliencia_uchile_corfo_subtel.pdf",
+        "justification": "Principal polo urbano, minero y de agregación de tráfico del Norte Grande sobre la columna vertebral Ruta 5 Norte documentada en el Estudio SUBTEL / NIC Labs (2018).",
+        "coordinate_quality": "Centro urbano de Antofagasta (a 0,50 km de la fibra SAIP); conectado mediante acometida sintética declarada."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-71.251968045, -29.902693482]
+      },
+      "properties": {
+        "name": "La Serena / Coquimbo — Nodo Troncal Norte Chico",
+        "category": "Nodo troncal regional",
+        "city": "La Serena",
+        "role": "genera / recibe",
+        "reference": "https://www.subtel.gob.cl/wp-content/uploads/2018/12/resiliencia_uchile_corfo_subtel.pdf",
+        "justification": "Capital de la Región de Coquimbo y punto troncal intermedio del corredor Norte Chico hacia Santiago (componente SAIP continua de 178 vértices hasta Quilicura).",
+        "coordinate_quality": "Coincide directamente con vértice de fibra SAIP en La Serena (sin acometida sintética)."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-71.62048049678572, -33.045765558769304]
+      },
+      "properties": {
+        "name": "Valparaíso — Aterrizaje Cables Submarinos SAm-1 / SAC",
+        "category": "Aterrizaje de cable submarino",
+        "city": "Valparaíso",
+        "role": "intercambia / recibe",
+        "reference": "https://www.submarinecablemap.com/api/v3/landing-point/valparaso-chile.json",
+        "justification": "Principal puerta internacional de Chile en el Pacífico. Cables en servicio antes de 2010: South American Crossing (SAC, 2000) y South America-1 (SAm-1, 2001); ciudad con anillo urbano citado en el Estudio SUBTEL (2018, p. 22).",
+        "coordinate_quality": "Coordenada de localidad TeleGeography; conectada al trazado SAIP Ruta 68 mediante acometida sintética declarada."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-70.67626, -33.357991]
+      },
+      "properties": {
+        "name": "Santiago — Cirion SAN1 (PIT Chile / Data Center)",
+        "category": "IXP / PIT y Data Center",
+        "city": "Santiago",
+        "role": "genera / intercambia / recibe",
+        "reference": "https://www.peeringdb.com/fac/2093",
+        "justification": "Principal instalación de colocation e intercambio de tráfico en Chile (registrada en PeeringDB antes de 2019; 70 redes y 4 IXP declarados). Articula la entrada norte del Gran Santiago.",
+        "coordinate_quality": "Coordenada PeeringDB; conectada al acceso SAIP Ruta 5 Norte y al anillo metropolitano sintético (Supuesto S2, Estudio SUBTEL 2018)."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-70.655821, -33.444436]
+      },
+      "properties": {
+        "name": "Santiago — Entel CNT / Torre Entel (PIT / Troncal)",
+        "category": "IXP / PIT y Nodo troncal",
+        "city": "Santiago",
+        "role": "genera / intercambia / recibe",
+        "reference": "https://www.peeringdb.com/fac/5301",
+        "justification": "Centro neurálgico histórico de telecomunicaciones de Chile (registrado en PeeringDB antes de 2019; 10 redes y 2 IXP). Concentra interconexión nacional y salida troncal sur.",
+        "coordinate_quality": "Coordenada PeeringDB; integrada al anillo metropolitano sintético y salida sur SAIP (Supuesto S2, Estudio SUBTEL 2018)."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-70.848318, -33.448022]
+      },
+      "properties": {
+        "name": "Santiago — Equinix ST1/ST2 (Data Center / IXP)",
+        "category": "IXP / PIT y Data Center",
+        "city": "Santiago",
+        "role": "genera / intercambia / recibe",
+        "reference": "https://www.peeringdb.com/fac/5295",
+        "justification": "Data center de interconexión y alojamiento de contenido en el sector poniente de Santiago (PeeringDB < 2019; 11 redes y 2 IXP). Articula el acceso desde Valparaíso por Ruta 68.",
+        "coordinate_quality": "Coordenada PeeringDB; integrada al anillo metropolitano sintético y enlace SAIP Ruta 68 (Supuesto S2, Estudio SUBTEL 2018)."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-70.7399, -34.1708]
+      },
+      "properties": {
+        "name": "Rancagua — Nodo Troncal O'Higgins",
+        "category": "Nodo troncal regional",
+        "city": "Rancagua",
+        "role": "genera / recibe",
+        "reference": "https://www.subtel.gob.cl/wp-content/uploads/2018/12/resiliencia_uchile_corfo_subtel.pdf",
+        "justification": "Capital de la Región de O'Higgins y primer nodo troncal al sur de Santiago sobre la Ruta 5 Sur en el levantamiento SAIP / Estudio SUBTEL (2018).",
+        "coordinate_quality": "Centro urbano de Rancagua (a 0,08 km de la fibra SAIP); conectado mediante acometidas sintéticas declaradas."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-71.6554, -35.4264]
+      },
+      "properties": {
+        "name": "Talca — Nodo Troncal Región del Maule",
+        "category": "Nodo troncal regional",
+        "city": "Talca",
+        "role": "genera / recibe",
+        "reference": "https://www.subtel.gob.cl/wp-content/uploads/2018/12/resiliencia_uchile_corfo_subtel.pdf",
+        "justification": "Capital de la Región del Maule y nodo troncal central ubicado en la zona epicentral del terremoto del 27F (a ~137 km del epicentro USGS).",
+        "coordinate_quality": "Centro urbano de Talca (a 0,97 km de la fibra SAIP); conectado mediante acometida sintética declarada."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.0444, -36.8201]
+      },
+      "properties": {
+        "name": "Concepción — Nodo Troncal Biobío / REUNA",
+        "category": "Nodo troncal e intercambio regional",
+        "city": "Concepción",
+        "role": "genera / intercambia / recibe",
+        "reference": "https://www.subtel.gob.cl/wp-content/uploads/2018/12/resiliencia_uchile_corfo_subtel.pdf",
+        "justification": "Segundo polo metropolitano del país, sede regional de intercambio académico (REUNA) y anillo urbano de fibra soterrada citado en el Estudio SUBTEL (2018, p. 22). Zona de máximo impacto del 27F (~79 km del epicentro).",
+        "coordinate_quality": "Centro urbano de Concepción (a 0,93 km de la fibra SAIP); conectado mediante acometidas sintéticas declaradas."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-72.5904, -38.7359]
+      },
+      "properties": {
+        "name": "Temuco — Nodo Troncal La Araucanía",
+        "category": "Nodo troncal regional",
+        "city": "Temuco",
+        "role": "genera / recibe",
+        "reference": "https://www.subtel.gob.cl/wp-content/uploads/2018/12/resiliencia_uchile_corfo_subtel.pdf",
+        "justification": "Capital de la Región de La Araucanía y una de las cuatro ciudades principales con anillo urbano de fibra soterrada citadas en el Estudio SUBTEL (2018, p. 22).",
+        "coordinate_quality": "Centro urbano de Temuco (a 0,46 km de la fibra SAIP); conectado mediante acometida sintética declarada."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-72.9424, -41.4693]
+      },
+      "properties": {
+        "name": "Puerto Montt — Nodo Troncal Los Lagos (Puerta Austral)",
+        "category": "Nodo troncal regional",
+        "city": "Puerto Montt",
+        "role": "genera / intercambia / recibe",
+        "reference": "https://www.subtel.gob.cl/wp-content/uploads/2018/12/resiliencia_uchile_corfo_subtel.pdf",
+        "justification": "Capital de la Región de Los Lagos y nodo articulador del tráfico troncal entre Chile central y la macrozona sur-austral (Estudio SUBTEL 2018).",
+        "coordinate_quality": "Centro urbano de Puerto Montt (a 0,36 km de la fibra SAIP); conectado mediante acometida sintética declarada."
+      }
+    }
+  ]
+}
